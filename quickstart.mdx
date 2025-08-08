@@ -10,8 +10,7 @@ Use `uv` (recommended):
 ```bash
 uv add cua-sdk
 ```
-
-If you want the example backend too, clone this repo and run the backend as below.
+ 
 
 ## 2) Run your first task
 
@@ -35,18 +34,24 @@ asyncio.run(main())
 - **model**: `"claude" | "openai" | "browseruse"`
 - Optional: `starting_url="https://example.com"`
 
-## 3) Start the backend (optional but recommended)
+<Tip>Pass your Operative API key via the `cua_api_key` argument. Keys are required for all providers.</Tip>
 
-The backend proxies model calls and enforces per-key quotas.
+### BrowserUse model (optional)
 
-```bash
-cd CUA-backend
-uv sync && uv run python main.py
+When using `"browseruse"`, you can specify the underlying browser model via `browser_model`.
+
+```python
+await opcua.run(
+    "Research new features",
+    "browseruse",
+    cua_api_key="YOUR_KEY",
+    browser_model="o4-mini",
+)
 ```
 
-Set `ANTHROPIC_API_KEY` or `OPENAI_API_KEY` in your environment.
+Default is Claude Sonnet 4 (`claude-sonnet-4-20250514`).
 
-## What you get back
+## 3) What you get back
 
 `ComputerResult` includes:
 

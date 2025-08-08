@@ -23,14 +23,11 @@ A small Python SDK that lets an LLM control a local browser to complete real-wor
   <Card title="Real results" icon="image" href="/sdk/results">
     Get screenshots, summaries, and final messages.
   </Card>
-  <Card title="Bring your backend" icon="server" href="/backend">
-    Use our lightweight proxy for keys and routing.
-  </Card>
 </Columns>
 
 ## Show me the flow
 
 1. Your app calls the SDK.
 2. The SDK opens a local browser and streams screenshots.
-3. The backend proxy coordinates steps with the model.
+3. The SDK coordinates steps with your chosen model.
 4. You get a `ComputerResult` with what happened.

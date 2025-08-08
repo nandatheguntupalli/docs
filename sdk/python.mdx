@@ -29,11 +29,32 @@ async def main():
 asyncio.run(main())
 ```
 
+## Authentication
+
+Always pass your Operative API key using the `cua_api_key` parameter:
+
+```python
+await opcua.run("Check docs navigation", "claude", cua_api_key="YOUR_KEY")
+```
+
 ## Choose a provider
 
 ```python
 # claude | openai | browseruse
 await opcua.run("Check today's weather in NYC", "openai", cua_api_key="YOUR_KEY")
+```
+
+### BrowserUse model
+
+You can set the BrowserUse model with `browser_model` (default: `claude-sonnet-4-20250514`).
+
+```python
+await opcua.run(
+    "Summarize latest product updates",
+    "browseruse",
+    cua_api_key="YOUR_KEY",
+    browser_model="o4-mini",
+)
 ```
 
 ## Optional args
