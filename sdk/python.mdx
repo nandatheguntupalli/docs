@@ -1,0 +1,52 @@
+---
+title: "Python SDK"
+description: "One function to run computer tasks with Claude, OpenAI, or BrowserUse."
+---
+
+## Install
+
+```bash
+uv add cua-sdk
+```
+
+## Minimal example
+
+```python
+import asyncio
+import opcua
+
+
+async def main():
+    result = await opcua.run(
+        "Go to github.com and search for 'Operative'",
+        "claude",
+        cua_api_key="YOUR_KEY",
+    )
+    if result.success:
+        print("Done:", result.summary)
+
+
+asyncio.run(main())
+```
+
+## Choose a provider
+
+```python
+# claude | openai | browseruse
+await opcua.run("Check today's weather in NYC", "openai", cua_api_key="YOUR_KEY")
+```
+
+## Optional args
+
+```python
+await opcua.run(
+    task="Start at Wikipedia and search for 'Quantum computing'",
+    model="claude",
+    starting_url="https://wikipedia.org",
+    cua_api_key="YOUR_KEY",
+)
+```
+
+See the result fields in the next page.
+
+

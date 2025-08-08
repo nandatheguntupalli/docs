@@ -1,0 +1,30 @@
+---
+title: "Results"
+description: "What you get back from the SDK."
+---
+
+`opcua.run(...)` returns a `ComputerResult`.
+
+## Fields
+
+```python
+result.success        # bool - whether the task completed
+result.provider       # str - "claude" | "openai" | "browseruse"
+result.summary        # str - short description of what happened
+result.screenshots    # List[str] - base64 PNGs per step
+result.final_message  # str - final status message from the agent
+result.error          # Optional[str] - error details when success=False
+```
+
+## Typical usage
+
+```python
+if not result.success:
+    raise RuntimeError(result.error or "Task failed")
+
+for i, b64 in enumerate(result.screenshots):
+    # save to disk or send to your UI
+    pass
+```
+
+
